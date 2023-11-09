@@ -1,7 +1,7 @@
 #ifndef OBSTACLE_DETECTOR_H
 #define OBSTACLE_DETECTOR_H
 
-// Assuming you are working with LaserScan data.
+
 #include <sensor_msgs/LaserScan.h>
 
 class ObstacleDetector {
