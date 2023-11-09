@@ -4,10 +4,9 @@
 #include "ros/ros.h"
 #include "geometry_msgs/PoseStamped.h"
 #include "geometry_msgs/Twist.h"
-// Correct this include to match the actual message type you are working with.
-// Assuming LaserScan here.
+
 #include "sensor_msgs/LaserScan.h"
-#include "obstacleDetector.h" // Corrected path assuming it's in the same directory.
+#include "obstacleDetector.h" 
 #include <cmath>
 #include <algorithm>
 
@@ -25,7 +24,7 @@ private:
 
   // Action methods
   void haltMotion();
-  void searchForGuide(); // Define how to search for the guide
+  void searchForGuide(); 
 
 
   // NodeHandle for ROS communication
@@ -38,7 +37,7 @@ private:
   geometry_msgs::Twist twistMsg_;
 
   // Other member variables
-  ObstacleDetector obstacleDetector_; // Assuming LaserDetection is a class
+  ObstacleDetector obstacleDetector_; 
   bool obstacle_detected_;
   bool obstacle_reported_;
   bool search_reported_;
