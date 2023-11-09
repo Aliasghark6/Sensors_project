@@ -8,16 +8,16 @@ GuideTracker::GuideTracker(ros::NodeHandle nh)
   laser_sub_ = nh_.subscribe("/base_scan_raw", 100, &GuideTracker::laserCallBack, this);
   vel_pub_ = nh_.advertise<geometry_msgs::Twist>("/cmd_vel", 1);
 
-  guide_.threshold_distance = 1.0; // You might need to adjust this threshold based on your robot's needs.
+  guide_.threshold_distance = 1.0; 
   ROS_INFO_STREAM("GuideTracker initialized");
 }
 
 GuideTracker::~GuideTracker() {}
 
 void GuideTracker::trackerCallback(const geometry_msgs::PoseStampedConstPtr &msg) {
-  // Assuming that the msg provides the position of the QR code in a similar fashion to your example with the ArUco marker.
-  // Here we will assume that the x-coordinate corresponds to the forward/backward distance and the y-coordinate corresponds to the left/right distance.
-  guide_.pose = msg->pose; // Assuming that the msg has a 'pose' field.
+  // Assuming that the msg provides the position of the QR code.
+  // Here we assumed that the x-coordinate corresponds to the forward/backward distance and the y-coordinate corresponds to the left/right distance.
+  guide_.pose = msg->pose; 
 
   double distance_to_guide = std::hypot(guide_.pose.position.x, guide_.pose.position.y);
 
@@ -58,9 +58,7 @@ void GuideTracker::haltMotion() {
 }
 
 void GuideTracker::searchForGuide() {
-  // You can use a similar logic to 'GuiderFollow::stop' to implement a search pattern
-  // for the QR code when it is not detected.
-  // ...
+  
 }
 
 void GuideTracker::run() {
